@@ -1,0 +1,294 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Montserrat; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+:root{
+    --bg-color: #f4f3ff;
+    --btn-color: #646cff;
+    --dark-color: #242424;
+    --helper-color: #99b9ff;
+}
+
+html{
+    font-size: 62.5%;  
+}
+
+/* basic styling  */
+body{
+    margin: 0;
+    min-width: 32rem;
+    min-height: 100vh;
+}
+
+h1{
+    font-size: 5.4rem;
+    line-height: 1.1;
+    font-weight:bold;
+}
+
+p,label,textarea {
+    font-size: 1.8rem;
+    line-height: 1.56;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.06rem;
+}
+
+li{
+    font-weight: 500;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    color: var(--btn-color);
+    list-style: none;
+}
+
+/* layout styling  */
+.container{
+    max-width: 140rem;
+    padding: 4rem 2.4rem;
+    margin: 0 auto;
+}
+
+.grid{
+    display: grid;
+    gap: 6.4rem;
+}
+
+.grid-two-cols{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Reusable */
+button{
+    text-transform: capitalize;
+    padding: 1rem 1rem;
+    font-size: 1.7rem;
+    font-weight: 500;
+    border-radius: 10px;
+    background-color: var(--btn-color);
+    cursor: pointer;
+    border: 0.1rem solid transparent;
+}
+
+li:hover,
+li.active{
+    color: #535bf2;
+}
+
+/* ---- Hero Section ----*/
+
+.section-hero{
+    & .grid{
+        align-items: center;
+    }
+}
+
+.hero-content{
+    & p{
+        margin: 2.4rem 0 4.8rem  0;
+    }
+}
+
+.hero-image{
+    display: flex;
+    justify-content: center;
+    & img{
+        width: 70%;
+        height: auto;
+    }
+}
+
+/*? state rules  */
+
+button:hover {
+    box-shadow: inset 0 0 0 0.2rem var(--helper-color);
+    border: 0.2rem solid #fff;
+  }
+  
+  a:hover,
+  a.active {
+    color: #535bf2;
+  }
+  
+  /* pseduo elements  */
+  .main-heading {
+    position: relative;
+    text-transform: capitalize;
+  
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      height: 0.5rem;
+      background-color: var(--btn-color);
+    }
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover,
+    a.active {
+      color: #747bff;
+    }
+    button {
+      background-color: var(--btn-color);
+    }
+  }
+  
+  @keyframes animate {
+    0% {
+      background-position: 0 0;
+    }
+    25% {
+      background-position: 100% 0;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  .content h4 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+  
+  .content .btn {
+    margin: 25px 0;
+    display: inline-flex;
+    justify-content: center;
+  }
+  .content .btn a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    border: 2px solid var(--btn-color);
+    color: var(--btn-color);
+    font-weight: 500;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+  .content a:hover {
+    background: var(--btn-color);
+    color: #fff;
+  }
+  
+  /** -----------------------
+  ** registration section css
+  ** -------------------------  */
+  
+  .section-registration {
+    padding: 0 3.2rem;
+  
+    & .container {
+      /* background-color: #fff; */
+      padding-top: 3.2rem;
+      align-items: center;
+  
+      & img {
+        width: 80%;
+        height: auto;
+      }
+    }
+  
+    & .registration-form {
+      & label {
+        display: block;
+        margin: 2.4rem 0 0.8rem 0;
+        text-transform: capitalize;
+      }
+      & input {
+        width: 80%;
+        padding: 0.6rem 0.6rem;
+      }
+  
+      & button {
+        margin-top: 3.2rem;
+      }
+    }
+  }
+  
+  .adminNav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .adminContainer {
+    display: grid;
+    padding-top: 0;
+    grid-template-columns: 1fr 3fr;
+  }
+  
+  .adminList {
+    flex-direction: column;
+    list-style-type: none;
+  }
+  
+  .adminList li {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+  }
+  
+  
+  /** -----------------------
+  ** media query section css
+  ** -------------------------  */
+  
+  @media (width <= 998px) {
+    .grid-two-cols {
+      grid-template-columns: 1fr;
+    }
+  
+    .section-services {
+      & .grid-three-cols {
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+      }
+    }
+  
+    .section-registration {
+      & .container {
+        & .reg-img img {
+          width: 60%;
+          height: auto;
+        }
+      }
+    }
+  }
+  
+  @media (width <= 798px) {
+    html {
+      font-size: 56.25%;
+    }
+  
+    .section-registration {
+      & .container {
+        & .reg-img img {
+          width: 50%;
+          height: auto;
+        }
+      }
+  
+      & .registration-form {
+        & input {
+          width: 100%;
+          padding: 0.6rem 0.6rem;
+        }
+      }
+    }
+  }
